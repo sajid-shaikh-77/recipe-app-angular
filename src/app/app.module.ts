@@ -18,11 +18,16 @@ import { ShoppingListModule } from './shopping-list/shopping-list.model';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.model';
 import { AuthModule } from './auth/auth.model';
-
+import { OrderComponent } from './order/order.component';
+import { OrderRoutingMOdel } from './order/order.routing.model';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    OrderComponent,
+
     // DropdownDirective,
     // AuthComponent,
     // LoadingSpinnerComponent,
@@ -31,10 +36,13 @@ import { AuthModule } from './auth/auth.model';
   ],
   imports: [
     BrowserModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
     // FormsModule,
     // ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
+    OrderRoutingMOdel,
     // RecipesModule,
     // AuthModule,
     // ShoppingListModule,
