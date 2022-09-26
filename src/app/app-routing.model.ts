@@ -11,6 +11,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/recipes', pathMatch: 'full' },
+
   {
     path: 'recipes',
     loadChildren: () =>

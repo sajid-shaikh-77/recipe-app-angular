@@ -22,6 +22,9 @@ import { OrderComponent } from './order/order.component';
 import { OrderRoutingMOdel } from './order/order.routing.model';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModelboxComponent } from './shared/modelbox/modelbox.component';
+import { CartRouteModule } from './cart/cart.route.moule';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +46,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     AppRoutingModule,
     OrderRoutingMOdel,
+    CartRouteModule,
     // RecipesModule,
     // AuthModule,
     // ShoppingListModule,
@@ -51,6 +55,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  // entryComponents: [AlertComponent],
+  entryComponents: [ModelboxComponent],
 })
 export class AppModule {}

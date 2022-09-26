@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ModelboxComponent } from 'src/app/shared/modelbox/modelbox.component';
 
 import { Recipe } from '../recipe.model';
 import { RecipeService } from '../recipe.service';
@@ -16,14 +18,19 @@ export class RecipeDetailComponent implements OnInit {
   constructor(
     private recipeService: RecipeService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit() {
     // const id = this.route.snapshot.params['id'];
+    console.log(this.route.params);
+
     this.route.params.subscribe((params: Params) => {
+      console.log(params, 'params');
       this.id = +params['id'];
       this.recipe = this.recipeService.getRecipe(this.id);
+      console.log(this.id, 'In Recipe');
     });
   }
 
@@ -36,8 +43,14 @@ export class RecipeDetailComponent implements OnInit {
     // this.router.navigate(['../', this.id, 'edit'], { relativeTo: this.route });
   }
 
-  onDeleteRecipe() {
-    this.recipeService.deleteRecipe(this.id);
-    this.router.navigate(['/recipes']);
+  onOpen() {
+    this.dialog.open(ModelboxComponent, {
+      data: { recipe: this.recipe, id: this.id },
+    });
   }
+
+  // onDeleteRecipe() {
+  //   this.recipeService.deleteRecipe(this.id);
+  //   this.router.navigate(['/recipes']);
+  // }
 }

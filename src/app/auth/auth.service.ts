@@ -61,6 +61,8 @@ export class AuthService {
       .pipe(
         catchError(this.handleError),
         tap((resData) => {
+          console.log(resData);
+
           this.handleAuthentication(
             resData.email,
             resData.localId,
